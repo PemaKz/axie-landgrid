@@ -11,7 +11,7 @@ module.exports = (colMin = -150, colMax = 30, rowMin = -150, rowMax = -30) => {
           const randomTime = ((Math.random()*2) * 60000) + 60000;
           console.log('Got Blocked Trying Again in ... ' + randomTime/1000 + ' seconds');
           await new Promise(resolve => setTimeout(resolve, randomTime));
-          landInfo.landInfo = await AxieQL.getLandQL(c, r)
+          landInfo = await AxieQL.getLandQL(c, r)
         }
         if(landInfo.landInfo) {
           landReturn.push({
