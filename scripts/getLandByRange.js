@@ -8,7 +8,7 @@ module.exports = (colMin = -150, colMax = 30, rowMin = -150, rowMax = -30) => {
       for(let r = rowMin; r <= rowMax; r++){
         let landInfo = await AxieQL.getLandQL(c, r)
         if(landInfo.error) {
-          const randomTime = (Math.random()*3) * 60000
+          const randomTime = ((Math.random()*2) * 60000) + 60000;
           console.log('Got Blocked Trying Again in ...')
           await new Promise(resolve => setTimeout(resolve, randomTime));
           landInfo.landInfo = await AxieQL.getLandQL(c, r)
